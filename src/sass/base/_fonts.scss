@@ -1,0 +1,106 @@
+
+@font-face {
+    font-family: 'Lato-Light';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v22/S6u9w4BMUTPHh7USSwiPGQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v22/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v22/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@mixin icon-font-color-process($color,
+$size) {
+    @if $color==null {
+        font-size: $size;
+    }
+    @else {
+        color: $color !important;
+    }
+}
+
+@each $fontsize,
+$size in $font-sizes {
+    @each $colorlabel,
+    $color in $color-list {
+        i {
+            &.#{$colorlabel}-#{$fontsize} {
+                @include icon-font-color-process(null,
+                $size);
+                &::before {
+                    @include icon-font-color-process($color,
+                    null);
+                }
+            }
+        }
+    }
+}
+
+$family-style-normal: 'Lato';
+$family-style-bold: 'Lato-Bold';
+$family-style-light: 'Lato-Light';
+@mixin fontProcess($family,
+$weight,
+$size,
+$color) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+
+@each $fontsize,
+$size in $font-sizes {
+    @each $colorlabel,
+    $color in $color-list {
+        //lato
+        .lat-#{$colorlabel}-#{$fontsize} {
+            @include fontProcess($family-style-normal,
+            normal,
+            $size,
+            $color);
+        }
+        .lat-#{$colorlabel}-bold-#{$fontsize} {
+            @include fontProcess($family-style-bold,
+            normal,
+            $size,
+            $color);
+        }
+        .lat-#{$colorlabel}-light-#{$fontsize} {
+            @include fontProcess($family-style-light,
+            normal,
+            $size,
+            $color);
+        }
+        //cinzel
+        .cnl-#{$colorlabel}-#{$fontsize} {
+            @include fontProcess($second-font-family,
+            normal,
+            $size,
+            $color);
+        }
+        .cnl-#{$colorlabel}-bold-#{$fontsize} {
+            @include fontProcess($second-font-family,
+            bold,
+            $size,
+            $color);
+        }
+    }
+}

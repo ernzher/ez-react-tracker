@@ -1,0 +1,95 @@
+/* -------------------------------------------
+	Variables 
+------------------------------------------- */
+
+// 1. Colors
+$primary-color: #002679 !default;
+$primary-color-dark: #001326  !default;
+$secondary-color: #974a8e !default;
+$alert-color: #b10001 !default;
+$success-color: #046b21 !default;
+$body-color: #666 !default;
+$dark-color: #222 !default;
+$light-color: rgb(247, 247, 247) !default;
+$grey-color: #999 !default;
+$border-color: #e1e1e1 !default;
+$border-color-light: #eee !default;
+$white-color: #fff !default;
+$disable-color: #77777780;
+$background-color: rgb(245, 245, 245);
+//product tab
+$product-tablink-color: #f2f2f2;
+$product-tablink-hover-color: #ddd;
+//2. other font color
+$black: #000000;
+$red: #ff0000;
+$grey: #676767;
+$yellow: #ffda3d;
+$orange: #eb7411;
+// 2. Font-families
+$alt-font-family: sans-serif !default;
+$second-font-family: Cinzel, $alt-font-family !default;
+$font-family: Lato, $alt-font-family !default;
+$third-font-family: 'Open Sans', $alt-font-family !default;
+// 3. Breakpoints
+$breakpoints: (
+    xxs: 375px,
+    xs: 480px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px,
+    xlst: 1920px
+);
+$max-breakpoints: (
+    xxs: 374px,
+    xs: 479px,
+    sm: 575px,
+    md: 767px,
+    lg: 991px,
+    xl: 1199px,
+    xxl: 1599px,
+    xlst: 1919px
+);
+// 4. Link Colors
+$social-facebook: #3b5998;
+$social-twitter: #1da1f2;
+$social-linkedin: #0073b2;
+$social-email: #dd4b39;
+$social-google: #dd4b39;
+$social-pinterest: #bd081c;
+$social-reddit: #ff4107;
+$social-tumblr: #304e6c;
+$social-vk: #6383a8;
+$social-whatsapp: #3c8a38;
+$social-xing: #1a7576;
+$social-instagram: #7c4a3a;
+$social-paypal: #1a7576;
+// 5. Sizes
+$standard: 2rem;
+$standard-half: 1rem;
+// 6. Fonts
+//font size list
+$category-icon-size: 28px;
+$footer-icon-size: 28px;
+$standard-font-size: 14px;
+$font-sizes: (
+    0: 24px,
+    1: 18px,
+    2: 14px,
+    3: 12px,
+    4: 9px
+);
+//font color list
+$color-list: (
+    'pri': $primary-color,
+    'snd': $secondary-color,
+    'blk': $black,
+    'red': $red,
+    'org': $orange,
+    'ylw': $yellow,
+    'gry': $grey,
+    'wht': $white-color,
+    'dis': $disable-color
+);
