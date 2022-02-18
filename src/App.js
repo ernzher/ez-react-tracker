@@ -2,7 +2,10 @@ import React from 'react';
 import Header from './components/Header' 
 import TaskList from './components/TaskList' 
 import TaskForm from './components/TaskForm' 
+import Footer from './components/Footer' 
+import About from './components/About' 
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 const App = () => {
 
@@ -69,13 +72,24 @@ const App = () => {
 	}
 
 	return (
-		<div className="container">
-			<div className="std-tb-margin std-box-shadow std-half-border-rad">
-				<Header toggleForm={toggleForm} showForm={showForm} />
-				{ showForm && <TaskForm addTask={addTask} /> }
-				<TaskList tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} />
+		<Router>
+			<div className="container">
+				<div className="std-tb-margin std-box-shadow std-half-border-rad">
+					<Header toggleForm={toggleForm} showForm={showForm} />
+					<Routes>
+						<Route path='/' element={
+							<>
+								{ showForm && <TaskForm addTask={addTask} /> }
+								<TaskList tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} />
+							</>
+						} />
+						<Route path="/about" element={<About />}/>
+					</Routes>
+						
+					<Footer />
+				</div>
 			</div>
-		</div>
+		</Router>
 	);
 }
 
