@@ -6,8 +6,13 @@ const TaskList = ({ tasks, deleteTask, toggleReminder }) => {
     return (
         <div className='std-half-padding'>
             {
-                tasks.map(task => (
-                    <Task key={task.id} task={task} deleteTask={deleteTask} toggleReminder={toggleReminder} />
+                tasks.map((task, index) => (
+                    <Task 
+                        key={'task '+ index } 
+                        task={task} 
+                        deleteTask={deleteTask} 
+                        toggleReminder={toggleReminder} 
+                    />
                 ))
             }
         </div>
