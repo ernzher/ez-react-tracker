@@ -1,8 +1,8 @@
 import React from 'react'
 import Task from './Task'
 import PropTypes from 'prop-types'
+
 const TaskList = ({ tasks, deleteTask, toggleReminder }) => {
-    
     return (
         <div className='std-half-padding'>
             {
