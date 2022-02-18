@@ -5,7 +5,7 @@ import TaskForm from './components/TaskForm'
 import { useState } from 'react';
 
 const App = () => {
-	const [tasks, useTasks] = useState([
+	const [tasks, setTasks] = useState([
 		{
 			id: 1,
 			text: 'Doctors Appointment',
@@ -25,13 +25,24 @@ const App = () => {
 			reminder: false
 		}
 	])
-
+	const deleteTask = (id) => {
+		setTasks(tasks.filter(task => task.id != id))
+	}
+	const addTask = (task) => {
+		const id = Math.floor(Math.random() * 10000) + 1
+		const newTask = {id, ...task}
+		setTasks([...tasks, newTask])
+	}
+	const toggleReminder = (id) => {
+		console.log('hi');
+		setTasks(tasks.map(task => task.id == id ? {...task, reminder: !task.reminder} : task ))
+	}
 	return (
 		<div className="container">
 			<div className="std-tb-margin std-box-shadow std-half-border-rad">
 				<Header />
-				<TaskForm />
-				<TaskList tasks={tasks} />
+				<TaskForm addTask={addTask} />
+				<TaskList tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} />
 			</div>
 		</div>
 	);
